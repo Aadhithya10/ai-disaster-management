@@ -62,7 +62,46 @@ Dashboard Features:
 =>Alert history
 =>Color-coded hazard cards
 
-6. Screenshots
+6. Architecture Diagram-
+   System Architecture
+   flowchart LR
+    A[STM32 Multi-Sensor Node\n(Gas, Flame, Vibration)] --> B[Synthetic Data\nGenerator]
+    B --> C[ML Training Pipeline\n(Random Forest Model)]
+    C --> D[Trained Model\nhazard_rf_model.pkl]
+    D --> E[FastAPI Backend\n/predict Endpoint]
+    E --> F[React Dashboard\n(Real-Time UI)]
+
+   Data Flow
+   flowchart LR
+    A[Synthetic Sensor Data] --> B[Cleaning & Preprocessing]
+    B --> C[Feature Extraction\ngas, flame, dev_mg]
+    C --> D[Model Training\nRandom Forest]
+    D --> E[Saved Model File\nhazard_rf_model.pkl]
+    E --> F[FastAPI Server\nLoads ML Model]
+    F --> G[Dashboard Fetches Prediction]
+
+   Full Software Architecture (Backend + Frontend)
+   flowchart TB
+    A[Sensors (Gas, Flame, Vibration)] --> B[STM32 Node (C Firmware)]
+    B --> C[Synthetic Data CSV]
+    C --> D[Jupyter Notebook\nML Training]
+    D --> E[Random Forest Model]
+    E --> F[FastAPI Backend\nPython]
+    F --> G[REST API\n/predict]
+    G --> H[React Dashboard]
+    H --> I[Charts, Alerts, Simulation]
+
+   ML Pipeline
+   flowchart LR
+    A[Raw Synthetic Data] --> B[EDA\nVisualization & Stats]
+    B --> C[Train-Test Split]
+    C --> D[Random Forest Training]
+    D --> E[Evaluation\nAccuracy & Confusion Matrix]
+    E --> F[Save Model\nhazard_rf_model.pkl]
+
+
+
+8. Screenshots
    Safe State-
 <img width="888" height="610" alt="image" src="https://github.com/user-attachments/assets/23b04c4d-5ae3-48ff-8bfa-7aac422e9145" />
 <img width="755" height="598" alt="image" src="https://github.com/user-attachments/assets/089ffbdc-78b3-4bfd-b6f6-79541cf704f7" />
@@ -84,7 +123,7 @@ Dashboard Features:
 <img width="722" height="597" alt="image" src="https://github.com/user-attachments/assets/7ee3b34c-30a2-4c84-9b39-b02144c7f8d6" />
 <img width="416" height="265" alt="image" src="https://github.com/user-attachments/assets/1b3ee61e-d5a1-4a1e-a02e-c107b1aab5a5" />
    
-7. About This Project
+9. About This Project
 
 Originally developed as a multi-sensor STM32 disaster detection system, this project evolves into a complete AI-based hazard intelligence platform, demonstrating:
      -- Embedded Systems
