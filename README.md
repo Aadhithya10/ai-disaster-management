@@ -105,11 +105,12 @@ npm start
 
 ```mermaid
 flowchart LR
-    A[STM32 Multi-Sensor Node\n(Gas, Flame, Vibration)] --> B[Synthetic Data\nGenerator]
-    B --> C[ML Training Pipeline\n(Random Forest Model)]
-    C --> D[Trained Model\nhazard_rf_model.pkl]
-    D --> E[FastAPI Backend\n/predict Endpoint]
-    E --> F[React Dashboard\n(Real-Time UI)]
+    A[STM32 Multi-Sensor Node - Gas, Flame, Vibration] --> B[Synthetic Data Generator]
+    B --> C[ML Training Pipeline - Random Forest Model]
+    C --> D[Trained Model - hazard_rf_model.pkl]
+    D --> E[FastAPI Backend - /predict Endpoint]
+    E --> F[React Dashboard - Real-Time UI]
+
 ```
 
 ---
