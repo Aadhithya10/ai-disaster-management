@@ -24,12 +24,11 @@ Originally implemented on STM32F401 Black Pill, the project is extended into a f
 
 2. Folder Structure
 ai-disaster-management/
-│
-├── embedded_node/         # STM32 firmware
-├── data/                  # Synthetic generator + CSV
-├── ml_model/              # Training notebook + ML model
-├── backend/               # FastAPI server
-└── dashboard/             # React frontend UI
+- embedded_node/         # STM32 firmware
+- data/                  # Synthetic generator + CSV
+- ml_model/              # Training notebook + ML model
+- backend/               # FastAPI server
+- dashboard/             # React frontend UI
 
 3. Machine Learning Model
 ->Algorithm: Random Forest
