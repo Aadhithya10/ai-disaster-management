@@ -133,14 +133,15 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    A[Sensors (Gas, Flame, Vibration)] --> B[STM32 Node (C Firmware)]
+    A[Sensors: Gas, Flame, Vibration] --> B[STM32 Embedded Node]
     B --> C[Synthetic Data CSV]
-    C --> D[Jupyter Notebook\nML Training]
+    C --> D[Jupyter Notebook - ML Training]
     D --> E[Random Forest Model]
-    E --> F[FastAPI Backend\nPython]
-    F --> G[REST API\n/predict]
+    E --> F[FastAPI Backend - Python]
+    F --> G[REST API - /predict]
     G --> H[React Dashboard]
-    H --> I[Charts, Alerts, Simulation]
+    H --> I[Charts, Alerts, Simulation Buttons]
+
 ```
 
 ---
